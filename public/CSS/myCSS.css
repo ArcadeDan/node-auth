@@ -5,3 +5,18 @@ h1 {
 * {
     background-color: burlywood;
 }
+
+table, td {
+    border: 1px solid black;
+}
+
+.tac {
+    text-align: center;
+    border: 1px solid coral;
+    height: 10vh;
+    width: 20vw;
+    padding: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    float: inline-end
+}

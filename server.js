@@ -63,6 +63,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/CSS'))
 app.use('/js', express.static(__dirname + 'public/JS'))
+app.use('/txt', express.static(__dirname + 'public/JS'))
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
@@ -89,7 +90,6 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     }
     console.log(users)
 })
-
 
 
 
