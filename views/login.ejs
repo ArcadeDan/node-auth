@@ -9,13 +9,14 @@
         <link rel="stylesheet" href="CSS/myCSS.css">
     </head>
     <body>
+        <div class="center">
         <h1>login</h1>
         <% if (messages.error) { %>
             <% if (messages.error) { %>
                 <%= messages.error %>
             <% } %>
         <% } %>
-            
+        
     
     <form activation="/login" method="POST">
         <div>
@@ -31,6 +32,7 @@
         </section>
         <a href="/register">Register</a>
     </form>
+    </div>
     </body>
 </html>
 
