@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <h1>Create Login</h1>
+    <form activation="/register" method="POST">
+        <div>
+            <label for="name">User</label>
+            <input type="text" id="name" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="email" required> 
+        </div>
+        <section>
+            <button type="submit">Submit</button>
+        </section>
+        <a href="/login">Login</a>
+    </form>
+</html>
