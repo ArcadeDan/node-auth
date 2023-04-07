@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
+
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -10,15 +16,24 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 const createPassport = require('./passportConfig')
+createPassport(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users
+)
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     }
+    res.redirect('/login')
 }
 
 function checkNotAuthenticated(req, res, next) {
-    
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
 }
 
 
