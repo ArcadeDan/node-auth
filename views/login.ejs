@@ -1,15 +1,37 @@
-<h1>login</h1>
-<form activation="/login" method="POST">
-    <div>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="text" id="password" name="email" required> 
-    </div>
-    <section>
-        <button type="submit">Login</button>
-    </section>
-    <a href="/register">Register</a>
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>login</h1>
+        <% if (messages.error) { %>
+            <% if (messages.error) { %>
+                <%= messages.error %>
+            <% } %>
+        <% } %>
+            
+    
+    <form activation="/login" method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="email" required> 
+        </div>
+        <section>
+            <button type="submit">Login</button>
+        </section>
+        <a href="/register">Register</a>
+    </form>
+    </body>
+</html>
+
+
