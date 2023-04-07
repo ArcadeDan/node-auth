@@ -2,8 +2,6 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
-
-
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -14,13 +12,6 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
-
-const createPassport = require('./passportConfig')
-createPassport(
-    passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
-)
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
@@ -35,6 +26,14 @@ function checkNotAuthenticated(req, res, next) {
     }
     next()
 }
+
+
+const createPassport = require('./passportConfig')
+createPassport(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+)
 
 
 app.set('view engine', 'ejs');
@@ -71,6 +70,10 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     failureFlash: true
 }))
 
+app.get('/register', checkNotAuthenticated, async (req, res) => {
+    res.render('register.ejs')
+    })
+
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 8)
@@ -88,8 +91,6 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 })
 
 
-app.get('/register', (req, res) => res.render('register.ejs'))
-app.post('/register', (req, res) => {
-    req.body.email
-})
+
+
 app.listen(port, () => console.log(`Test app listening on port ${port}`));
