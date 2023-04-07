@@ -91,6 +91,14 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     console.log(users)
 })
 
+//what is wrong with this code?
+
+app.delete('/logout', function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/');
+    });
+  });
 
 
 app.listen(port, () => console.log(`Test app listening on port ${port}`));
