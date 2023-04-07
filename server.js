@@ -11,6 +11,16 @@ const methodOverride = require('method-override')
 
 const createPassport = require('./passportConfig')
 
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+}
+
+function checkNotAuthenticated(req, res, next) {
+    
+}
+
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}))
